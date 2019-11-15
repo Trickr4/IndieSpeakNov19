@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class LocationSelection : MonoBehaviour, IPointerClickHandler
 {
     Canvas template;
+    public GameObject location;
 
     // Start is called before the first frame update
     void Start()
@@ -17,5 +18,7 @@ public class LocationSelection : MonoBehaviour, IPointerClickHandler
     {
         Debug.Log(name + " Game Object Clicked!");
         template.gameObject.SetActive(false);
+        DialogueManager l = location.GetComponentsInChildren<DialogueManager>()[0];
+        l.StartDialogue();
     }
 }
