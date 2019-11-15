@@ -1,0 +1,15 @@
+Stats:
+Work = Authority stats ( option overtime )
+club = charisma increase
+Home = Refill Energy
+store = buy items
+motivations
+
+Flow
+wake up -> no choice, but to go to work
+
+want:
+money system
+salary rate
+total cash
+charisma = work promotion and love live
