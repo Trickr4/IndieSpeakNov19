@@ -5,30 +5,48 @@ using UnityEngine.EventSystems;
 
 public class Hand : MonoBehaviour
 {
+    List<Card> HandCard;
+    public GameObject display;
+    GameObject GameManager;
+    public GameObject CardPrefab;
+
+    public Transform parent;
     // Start is called before the first frame update
     void Start()
     {
-
+        HandCard = new List<Card>();
+        GameManager = GameObject.Find("GameManager");
     }
 
-    // Update is called once per frame
-    void Update()
+    void DisplayHand()
     {
-
+        //display = gameObject.transform.GetChild(0).gameObject;
+        display.SetActive(true);
     }
 
-    void displayHand()
+    void HideHand()
     {
+        //display = gameObject.transform.GetChild(0).gameObject;
+        display.SetActive(false);
     }
 
-    void CardtoHand( Card sub )
+    public void CardtoHand( Card sub )
     {
-
+        GameObject card = Instantiate(CardPrefab);
+        card.transform.SetParent(parent);
+        CardDisplay display = card.GetComponent<CardDisplay>();
+        display.Setup(sub);
+        HandCard.Add(sub);
     }
 
     void RemoveCard( Card sub )
     {
+        HandCard.Remove(sub);
+    }
 
+    public void EmptyHand()
+    {
+        HandCard.Clear();
     }
 
 }

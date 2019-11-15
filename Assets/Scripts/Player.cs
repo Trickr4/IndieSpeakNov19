@@ -11,12 +11,17 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        energy = 3;
+        charisma = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Action( Card effect )
     {
-        
+        Debug.Log("ENergy " + energy);
+        if (energy > 0)
+        {
+            energy -= 1;
+            charisma += effect.cardValue;
+        }
     }
 }

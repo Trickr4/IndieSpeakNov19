@@ -9,7 +9,7 @@ public class DialogueManager : MonoBehaviour
 {
     [SerializeField] GameObject dialoguePanel;
     [SerializeField] TextMeshProUGUI dialogueText;
-    [SerializeField] List<string> levelDialogue;
+    public List<string> levelDialogue;
 
     public UnityEvent done;
 
@@ -20,15 +20,6 @@ public class DialogueManager : MonoBehaviour
     bool doneWithDialogue = false;
     bool entered = false;
 
-
-    private void Awake()
-    {
-        done = new UnityEvent();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     void Update()
     {
@@ -64,8 +55,6 @@ public class DialogueManager : MonoBehaviour
     {
         waitingToContinue = false;
         dialoguePanel.SetActive(false);
-        done.Invoke();
-        Destroy(this.gameObject);
     }
 
     void NextLine()

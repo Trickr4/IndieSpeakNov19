@@ -7,10 +7,10 @@ public class Card : ScriptableObject
 {
 
     public Sprite icon;
-    public string cardName;
-    public string type;
+    public enum Type {Action, Field }
+    public Type type;
     public string cardDuration;
-    public string cardValue;
+    public int cardValue;
     [TextArea]
     public string description;
 
