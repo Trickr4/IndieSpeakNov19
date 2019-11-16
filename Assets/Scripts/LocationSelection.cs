@@ -25,9 +25,8 @@ public class LocationSelection : MonoBehaviour, IPointerClickHandler
     {
         if (template.GetComponent<Canvas>().enabled)
         {
-            canvas.SwitchTo(template, GameObject.Find(name));
-            GameObject dest = GameObject.Find(name);
-            Debug.Log(template);
+            canvas.SwitchTo(template, GameObject.Find(name+"s"));
+            GameObject dest = GameObject.Find(name + "s");
             dest.GetComponents<MonoBehaviour>()[2].enabled = true;
         }
     }

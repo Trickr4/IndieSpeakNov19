@@ -14,12 +14,6 @@ public class DayCycle : MonoBehaviour
         GameManager = GameObject.Find("GameManager");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void EndDay()
     {
         numDay += 1;

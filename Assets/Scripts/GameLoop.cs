@@ -28,6 +28,8 @@ public class GameLoop : MonoBehaviour
         canvas = GameManager.GetComponent<CanvasManager>();
     }
 
+
+
     // Update is called once per frame
     
 
@@ -41,6 +43,7 @@ public class GameLoop : MonoBehaviour
             startDay = false;
             //morning dialougue
             //cut into a day num screen
+            canvas.SwitchTo(GameObject.Find("Homes"), GameObject.Find("Map"));
         }
         
         if (player.ViewEnergy() == 0)
@@ -52,10 +55,6 @@ public class GameLoop : MonoBehaviour
         
     }
     
-
-    public void SetLocation(string place )
-    {
-        location = place;
-    }
+    
 
 }

@@ -13,9 +13,8 @@ public class CanvasManager : MonoBehaviour
     {
         GameObject GameManager = GameObject.Find("GameManager");
         Player player = GameManager.GetComponent<Player>();
-        Debug.Log(player.ViewEnergy());
-       
-            StartCoroutine(FadeIn(from, To));
+        Debug.Log(To.GetComponent<Canvas>().enabled);
+        StartCoroutine(FadeIn(from, To));
 
     }
     
