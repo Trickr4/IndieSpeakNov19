@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -75,5 +76,7 @@ public class Player : MonoBehaviour
     public void AddEnergy(int num)
     {
         energy += num;
+        if (energy >= 50)
+            SceneManager.LoadScene("EndScene");
     }
 }
