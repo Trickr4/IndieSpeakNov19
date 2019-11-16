@@ -15,6 +15,7 @@ public class Work : MonoBehaviour
     DialogueManager dialogue;
     CanvasManager canvas;
     GameObject gameManager;
+    Player player;
 
     GameObject dialogueManager;
 
@@ -23,6 +24,7 @@ public class Work : MonoBehaviour
         gameManager = GameObject.Find("GameManager");
         dialogueManager = GameObject.Find("DialogueManager");
         dialogue = dialogueManager.GetComponent<DialogueManager>();
+        player = gameManager.GetComponent<Player>();
         canvas = gameManager.GetComponent<CanvasManager>();
     }
 
@@ -66,6 +68,7 @@ public class Work : MonoBehaviour
             Debug.Log(person);
             dialogue.ended = false;
             this.enabled = false;
+            player.AddBalance(player.GetSalary());
             canvas.SwitchTo(GameObject.Find(name), GameObject.Find("Map"));
         }
         

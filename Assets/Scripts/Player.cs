@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        energy = 2;
+        energy = 3;
         charisma = 10f;
         motivation = 10f;
         rate.text = salary + "/HR";

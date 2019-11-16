@@ -5,10 +5,11 @@ using UnityEngine;
 public class Deck : MonoBehaviour
 {
 
-    List<Card> actionDeck;
-    List<Card> fieldDeck;
+    [SerializeField]List<Card> unownedCards;
 
-    public List<Card> test;
+    [SerializeField] List<Card> actionDeck;
+    List<Card> fieldDeck;
+    
 
 
 
@@ -16,8 +17,6 @@ public class Deck : MonoBehaviour
     void Start()
     {
         //actionDeck = new List<Card>();
-        actionDeck = test;
-        fieldDeck = new List<Card>();
     }
 
     // Update is called once per frame

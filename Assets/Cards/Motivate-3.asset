@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18508d8748025d4a9ba6dac53236d19, type: 3}
   m_Name: Motivate-3
   m_EditorClassIdentifier: 
-  icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: 2d1ccf7e17f2432459b73b18de0d498f, type: 3}
   type: 0
   cardDuration: 
   cardValue: -3

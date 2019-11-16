@@ -8,13 +8,31 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] Image FadeImage;
     bool loadFinish = false;
     public bool pauseInput = false;
+    GameLoop loop;
+    Player player;
+    GameObject GameManager;
+    DayCycle day;
 
+    private void Start()
+    {
+        GameManager = GameObject.Find("GameManager");
+        loop = GameManager.GetComponent<GameLoop>();
+        player = GameManager.GetComponent<Player>();
+        day = GameManager.GetComponent<DayCycle>();
+    }
 
     public void SwitchTo(GameObject from, GameObject To)
     {
         GameObject GameManager = GameObject.Find("GameManager");
         Player player = GameManager.GetComponent<Player>();
-        StartCoroutine(FadeIn(from, To));
+        if (player.ViewEnergy() == 0)
+        {
+            day.EndDay();
+            StartCoroutine(FadeIn(from, GameObject.Find("Homes")));
+            GameObject.Find("Homes").GetComponents<MonoBehaviour>()[2].enabled = true;
+        }
+        else
+            StartCoroutine(FadeIn(from, To));
 
     }
     
@@ -27,7 +45,6 @@ public class CanvasManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(1);
         while (FadeImage.color.a < 1 && loadFinish == false)
         {
-            Debug.Log(to);
             change.a += Time.deltaTime;
             FadeImage.color = change;
             
@@ -49,6 +66,11 @@ public class CanvasManager : MonoBehaviour
                 loadFinish = false;
                 pauseInput = false;
             }
+        }
+        if (player.ViewEnergy() == 0)
+        {
+            loop.startDay = true;
+            player.AddEnergy(2);
         }
 
     }

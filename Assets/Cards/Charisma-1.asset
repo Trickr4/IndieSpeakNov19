@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18508d8748025d4a9ba6dac53236d19, type: 3}
   m_Name: Charisma-1
   m_EditorClassIdentifier: 
-  icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: 91106cee575060d43bf368b820092b77, type: 3}
   type: 0
   cardDuration: 
   cardValue: -1

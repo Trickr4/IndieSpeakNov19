@@ -12,7 +12,7 @@ public class GameLoop : MonoBehaviour
     [SerializeField] TextMeshProUGUI DayText;
     [SerializeField] Image FadeImage;
 
-    bool startDay = true;
+    public bool startDay = true;
     bool dialoguePlaying = false;
 
     DayCycle day;
@@ -48,15 +48,10 @@ public class GameLoop : MonoBehaviour
             //morning dialougue
             //cut into a day num screen
             StartCoroutine(FadeIn());
-            canvas.SwitchTo(GameObject.Find("Homes"), GameObject.Find("Map"));
+            
         }
         
-        if (player.ViewEnergy() == 0)
-        {
-            day.EndDay();
-            player.AddEnergy(2);
-            startDay = true;
-        }
+        
         
     }
 
