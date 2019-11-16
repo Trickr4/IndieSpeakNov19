@@ -13,3 +13,8 @@ money system
 salary rate
 total cash
 charisma = work promotion and love live
+
+Place:
+Work: Boss, Love Intrest(all of them work)
+Shop: Shopkeep
+Bar: terry

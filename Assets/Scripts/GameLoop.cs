@@ -40,7 +40,7 @@ public class GameLoop : MonoBehaviour
             startDay = false;
             //morning dialougue
             //cut into a day num screen
-            canvas.SwitchTo(GameObject.Find("Morning"), GameObject.Find("Map"));
+            canvas.SwitchTo(GameObject.Find("Morning"), GameObject.Find("Work"));
         }
         
         if ( location != null )
