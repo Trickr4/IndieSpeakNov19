@@ -10,7 +10,7 @@ public class Hand : MonoBehaviour
     GameObject GameManager;
     public GameObject CardPrefab;
 
-    public Transform parent;
+    public Transform parentTrans;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,21 +21,22 @@ public class Hand : MonoBehaviour
     void DisplayHand()
     {
         //display = gameObject.transform.GetChild(0).gameObject;
-        display.SetActive(true);
+        parentTrans.transform.parent.gameObject.GetComponent<Canvas>().enabled = true;
     }
 
     void HideHand()
     {
         //display = gameObject.transform.GetChild(0).gameObject;
-        display.SetActive(false);
+        parentTrans.transform.parent.gameObject.GetComponent<Canvas>().enabled = false;
     }
 
     public void CardtoHand( Card sub )
     {
         GameObject card = Instantiate(CardPrefab);
-        card.transform.SetParent(parent);
+        card.transform.SetParent(parentTrans);
         CardDisplay display = card.GetComponent<CardDisplay>();
         display.Setup(sub);
+        HideHand();
         HandCard.Add(sub);
     }
 

@@ -5,26 +5,32 @@ using UnityEngine.EventSystems;
 
 public class LocationSelection : MonoBehaviour, IPointerClickHandler
 {
-    Canvas template;
+    GameObject template;
     public GameObject location;
     GameObject GameManager;
+    GameLoop loop;
+    CanvasManager canvas;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-        template = transform.parent.gameObject.GetComponentInParent(typeof(Canvas)) as Canvas;
+        //.GetComponentInParent(typeof(Canvas)) as Canvas
+        template = transform.parent.gameObject;
         GameManager = GameObject.Find("GameManager");
+        loop = GameManager.GetComponent<GameLoop>();
+        canvas = GameManager.GetComponent<CanvasManager>();
     }
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        DayCycle day = GameManager.GetComponent<DayCycle>();
-        Debug.Log(name + " Game Object Clicked!");
-        template.gameObject.SetActive(false);
+
+        Debug.Log(template + " Game Object Clicked!");
+        canvas.SwitchTo(template, GameObject.Find("Hand"));
+        loop.SetLocation(location.name);
+        /*
         DialogueManager l = location.GetComponentsInChildren<DialogueManager>()[0];
         l.levelDialogue = GameManager.GetComponent<Boss>().Speak();
         l.StartDialogue();
-        day.StartDay();
+        */
     }
 }

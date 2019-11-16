@@ -20,7 +20,7 @@ public class DayCycle : MonoBehaviour
         
     }
 
-    void EndDay()
+    public void EndDay()
     {
         numDay += 1;
         Hand hand = GameManager.GetComponent<Hand>();
@@ -38,11 +38,6 @@ public class DayCycle : MonoBehaviour
             hand.CardtoHand(deck.DrawActionCard());
         }
         
-    }
-
-    void DisplayMorning()
-    {
-
     }
 
 }
