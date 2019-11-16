@@ -33,6 +33,7 @@ public class GameLoop : MonoBehaviour
 
     void Update()
     {
+        /*
         if (startDay)
         {
 
@@ -42,7 +43,7 @@ public class GameLoop : MonoBehaviour
             //cut into a day num screen
             canvas.SwitchTo(GameObject.Find("Morning"), GameObject.Find("Work"));
         }
-        
+        */
         if ( location != null )
         {
             /*

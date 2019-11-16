@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: TopDog
   m_EditorClassIdentifier: 
   alias: TopDog
-  dialouge: []
+  dialouge:
+  - HEYO
+  - GET TO WORK!
   itemObject: {fileID: 0}
