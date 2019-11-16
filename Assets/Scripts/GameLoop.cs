@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameLoop : MonoBehaviour
 {
     GameObject GameManager;
 
+    [SerializeField] GameObject DayImage;
+    [SerializeField] TextMeshProUGUI DayText;
+    [SerializeField] Image FadeImage;
 
     bool startDay = true;
     bool dialoguePlaying = false;
@@ -38,11 +42,12 @@ public class GameLoop : MonoBehaviour
         
         if (startDay)
         {
-
             day.StartDay();
             startDay = false;
+            DayText.text = "Day " + day.numDay;
             //morning dialougue
             //cut into a day num screen
+            StartCoroutine(FadeIn());
             canvas.SwitchTo(GameObject.Find("Homes"), GameObject.Find("Map"));
         }
         
@@ -54,7 +59,24 @@ public class GameLoop : MonoBehaviour
         }
         
     }
-    
-    
+
+    IEnumerator FadeIn()
+    {
+        DayImage.GetComponent<Canvas>().enabled = true;
+        Color change = FadeImage.color;
+        while (FadeImage.color.a < 1)
+        {
+            change.a += Time.deltaTime;
+            FadeImage.color = change;
+            
+            
+        }
+        DayImage.GetComponent<Canvas>().enabled = true;
+        yield return new WaitForSecondsRealtime(1f);
+        DayImage.GetComponent<Canvas>().enabled = false;
+        change.a = 0;
+        FadeImage.color = change;
+
+    }
 
 }

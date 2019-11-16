@@ -23,24 +23,27 @@ public class DialogueManager : MonoBehaviour
 
     GameObject gameManager;
     Hand hand;
+    CanvasManager canvas;
 
     private void Start()
     {
         gameManager = GameObject.Find("GameManager");
         hand = gameManager.GetComponent<Hand>();
-
+        canvas = gameManager.GetComponent<CanvasManager>();
     }
 
 
     void Update()
     {
+        /*
         if (!started && Input.GetKeyDown(KeyCode.P))
         {
             Done();
         }
+        */
         if (waitingToContinue)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && !canvas.pauseInput)
             {
                 if (!doneWithDialogue)
                 {

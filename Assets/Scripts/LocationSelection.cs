@@ -23,7 +23,7 @@ public class LocationSelection : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        if (template.GetComponent<Canvas>().enabled)
+        if (template.GetComponent<Canvas>().enabled && !canvas.pauseInput)
         {
             canvas.SwitchTo(template, GameObject.Find(name+"s"));
             GameObject dest = GameObject.Find(name + "s");

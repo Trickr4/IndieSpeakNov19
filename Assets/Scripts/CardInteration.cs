@@ -31,31 +31,15 @@ public class CardInteration : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         
         if (hand.chose)
         {
-            Debug.Log(selected + " Game Object Clicked!");
-            if (pointerEventData.button == PointerEventData.InputButton.Left)
-            {
-                /*
-                if (inDialogue)
-                    UseCard(selected.card);
-                if (inShop)
-                    BuyCard(selected.card);
-                */
-            }
-            if (pointerEventData.button == PointerEventData.InputButton.Right)
-            {
+           
                 //InspectCard(pointerEventData.pointerPress);
                 UseCard(selected.card);
                 hand.HideHand();
                 hand.RemoveCard(selected.card);
                 Destroy(selected.gameObject);
                 hand.cardUsed = true;
-            }
+           
         }
-    }
-
-    void InspectCard( GameObject card )
-    {
-
     }
 
     void BuyCard( Card subject )

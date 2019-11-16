@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DayCycle : MonoBehaviour
 {
-    int numDay;
+    public int numDay;
     GameObject GameManager;
 
     // Start is called before the first frame update

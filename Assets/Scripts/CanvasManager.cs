@@ -7,34 +7,27 @@ public class CanvasManager : MonoBehaviour
 {
     [SerializeField] Image FadeImage;
     bool loadFinish = false;
+    public bool pauseInput = false;
 
 
     public void SwitchTo(GameObject from, GameObject To)
     {
         GameObject GameManager = GameObject.Find("GameManager");
         Player player = GameManager.GetComponent<Player>();
-        Debug.Log(To.GetComponent<Canvas>().enabled);
         StartCoroutine(FadeIn(from, To));
 
     }
     
-    IEnumerator FadeOut(GameObject to)
-    {
-        Color change = FadeImage.color;
-        while (FadeImage.color.a == 1)
-        {
-            change.a -= Time.deltaTime;
-            FadeImage.color = change;
-            yield return null;
-        }
-        to.GetComponent<Canvas>().enabled = true;
-    }
+    
 
     IEnumerator FadeIn(GameObject from, GameObject to)
     {
         Color change = FadeImage.color;
+        pauseInput = true;
+        yield return new WaitForSecondsRealtime(1);
         while (FadeImage.color.a < 1 && loadFinish == false)
         {
+            Debug.Log(to);
             change.a += Time.deltaTime;
             FadeImage.color = change;
             
@@ -54,6 +47,7 @@ public class CanvasManager : MonoBehaviour
             if (FadeImage.color.a <= 0)
             {
                 loadFinish = false;
+                pauseInput = false;
             }
         }
 

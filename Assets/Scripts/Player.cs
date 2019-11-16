@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -11,18 +12,26 @@ public class Player : MonoBehaviour
 
     float charisma;
     int energy;
-    [SerializeField] Image bar;
+    float motivation;
+    [SerializeField] Image moBar;
+    [SerializeField] Image chBar;
+    [SerializeField] TextMeshProUGUI money;
+    [SerializeField] TextMeshProUGUI rate;
 
     // Start is called before the first frame update
     void Start()
     {
         energy = 2;
         charisma = 10f;
+        motivation = 10f;
+        rate.text = salary + "/HR";
+        money.text = "" + balance;
     }
 
     void Update()
     {
-        bar.fillAmount = charisma / 20;
+        chBar.fillAmount = charisma / 50;
+        moBar.fillAmount = motivation / 50;
     }
 
     public float GetSalary()
@@ -33,6 +42,8 @@ public class Player : MonoBehaviour
     public void SetSalary(float n)
     {
         salary = n;
+        rate.text = salary + "//HR";
+
     }
 
     public float GetBalance()
@@ -43,6 +54,7 @@ public class Player : MonoBehaviour
     public void AddBalance(float n)
     {
         balance += n;
+        money.text = "" + balance;
     }
 
     public void Action( Card effect )

@@ -102,7 +102,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914ffb9a7edde8d43847d5910fed18bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bar: {fileID: 0}
+  moBar: {fileID: 0}
+  chBar: {fileID: 0}
+  money: {fileID: 0}
+  rate: {fileID: 0}
 --- !u!114 &4916769554968028934
 MonoBehaviour:
   m_ObjectHideFlags: 0
