@@ -41,27 +41,14 @@ public class GameLoop : MonoBehaviour
             startDay = false;
             //morning dialougue
             //cut into a day num screen
-            //canvas.SwitchTo(GameObject.Find("Morning"), GameObject.Find("Work"));
         }
         
-        if ( location != null )
+        if (player.ViewEnergy() == 0)
         {
-            /*
-            if (!dialoguePlaying)
-            {
-                dialogue.StartDialogue();
-            }
-            if ( player.ViewEnergy() == 0 && !dialoguePlaying)
-            {
-                day.EndDay();
-            }
-            */
+            day.EndDay();
+            player.AddEnergy(2);
+            startDay = true;
         }
-        //cuts into map
-        //cuts into location
-        //cuts into dialouge
-        //energy = 0. end day. and loops
-        //if charisma = 100 then end game
         
     }
     

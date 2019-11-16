@@ -11,27 +11,14 @@ public class CanvasManager : MonoBehaviour
 
     public void SwitchTo(GameObject from, GameObject To)
     {
-        
-        StartCoroutine(FadeIn(from,To));
-        
-    }
+        GameObject GameManager = GameObject.Find("GameManager");
+        Player player = GameManager.GetComponent<Player>();
+        Debug.Log(player.ViewEnergy());
+       
+            StartCoroutine(FadeIn(from, To));
 
-    /*
-    public void ExitCanvas(GameObject scene)
-    {
-        if (loadFinish)
-            StartCoroutine(FadeIn(scene));
     }
-
-    public void EnterCanvas(GameObject scene)
-    {
-        if (loadFinish)
-        {
-            scene.GetComponent<Canvas>().enabled = true;
-            StartCoroutine(FadeOut());
-        }s
-    }
-    */
+    
     IEnumerator FadeOut(GameObject to)
     {
         Color change = FadeImage.color;
@@ -64,11 +51,10 @@ public class CanvasManager : MonoBehaviour
             change.a -= Time.deltaTime;
             FadeImage.color = change;
             yield return null;
+            to.GetComponent<Canvas>().enabled = true;
             if (FadeImage.color.a <= 0)
             {
                 loadFinish = false;
-                
-                to.GetComponent<Canvas>().enabled = true;
             }
         }
 

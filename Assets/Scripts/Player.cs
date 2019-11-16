@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 
-    int charisma;
+    float charisma;
     int energy;
     [SerializeField] Image bar;
 
     // Start is called before the first frame update
     void Start()
     {
-        energy = 3;
-        charisma = 0;
+        energy = 2;
+        charisma = 10f;
     }
 
     void Update()

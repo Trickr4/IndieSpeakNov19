@@ -27,16 +27,8 @@ public class LocationSelection : MonoBehaviour, IPointerClickHandler
         {
             canvas.SwitchTo(template, GameObject.Find(name));
             GameObject dest = GameObject.Find(name);
-            Debug.Log(dest.GetComponents<MonoBehaviour>()[2]);
+            Debug.Log(template);
             dest.GetComponents<MonoBehaviour>()[2].enabled = true;
-            // foreach (var component in gameObject.GetComponents<MonoBehaviour>())
-            //    Debug.Log(component.GetType());
-            loop.SetLocation(location.name);
-            /*
-            DialogueManager l = location.GetComponentsInChildren<DialogueManager>()[0];
-            l.levelDialogue = GameManager.GetComponent<Boss>().Speak();
-            l.StartDialogue();
-            */
         }
     }
 }

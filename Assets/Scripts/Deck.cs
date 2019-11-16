@@ -8,7 +8,7 @@ public class Deck : MonoBehaviour
     List<Card> actionDeck;
     List<Card> fieldDeck;
 
-    public Card test;
+    public List<Card> test;
 
 
 
@@ -16,7 +16,7 @@ public class Deck : MonoBehaviour
     void Start()
     {
         //actionDeck = new List<Card>();
-        actionDeck = new List<Card>() {test};
+        actionDeck = test;
         fieldDeck = new List<Card>();
     }
 

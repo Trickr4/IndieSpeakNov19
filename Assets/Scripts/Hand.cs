@@ -52,6 +52,8 @@ public class Hand : MonoBehaviour
 
     public void EmptyHand()
     {
+        foreach (Transform c in parentTrans)
+            Destroy(c.transform.gameObject);
         HandCard.Clear();
     }
 
