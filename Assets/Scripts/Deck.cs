@@ -40,7 +40,7 @@ public class Deck : MonoBehaviour
 
     public Card DrawActionCard()
     {
-        Debug.Log(actionDeck[Random.Range(0, actionDeck.Count)]);
+        //Debug.Log(actionDeck[Random.Range(0, actionDeck.Count)]);
         return actionDeck[Random.Range(0,actionDeck.Count)];
     }
 

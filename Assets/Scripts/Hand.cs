@@ -5,10 +5,12 @@ using UnityEngine.EventSystems;
 
 public class Hand : MonoBehaviour
 {
-    List<Card> HandCard;
+    public List<Card> HandCard;
     public GameObject display;
     GameObject GameManager;
     public GameObject CardPrefab;
+    public bool cardUsed = false;
+    public bool chose = false;
 
     public Transform parentTrans;
     // Start is called before the first frame update
@@ -18,16 +20,19 @@ public class Hand : MonoBehaviour
         GameManager = GameObject.Find("GameManager");
     }
 
-    void DisplayHand()
+    public void DisplayHand()
     {
         //display = gameObject.transform.GetChild(0).gameObject;
         parentTrans.transform.parent.gameObject.GetComponent<Canvas>().enabled = true;
+        chose = true;
+
     }
 
-    void HideHand()
+    public void HideHand()
     {
         //display = gameObject.transform.GetChild(0).gameObject;
         parentTrans.transform.parent.gameObject.GetComponent<Canvas>().enabled = false;
+        chose = false;
     }
 
     public void CardtoHand( Card sub )
@@ -40,7 +45,7 @@ public class Hand : MonoBehaviour
         HandCard.Add(sub);
     }
 
-    void RemoveCard( Card sub )
+    public void RemoveCard( Card sub )
     {
         HandCard.Remove(sub);
     }

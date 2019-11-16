@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7120570925567731760}
   - component: {fileID: 3823001109928744841}
   m_Layer: 0
-  m_Name: Club
+  m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -584,7 +584,7 @@ GameObject:
   - component: {fileID: 485457083709171319}
   - component: {fileID: 1102100587303740259}
   m_Layer: 0
-  m_Name: Store
+  m_Name: Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

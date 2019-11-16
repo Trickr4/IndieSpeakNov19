@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Aiko
   m_EditorClassIdentifier: 
   alias: Aiko
-  dialouge: []
+  dialouge:
+  - Hewwo
+  - Nice to me yu
   itemObject: {fileID: 0}

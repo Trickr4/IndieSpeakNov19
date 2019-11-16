@@ -51,7 +51,7 @@ public class CanvasManager : MonoBehaviour
         {
             change.a += Time.deltaTime;
             FadeImage.color = change;
-            Debug.Log(FadeImage.color.a);
+            
             yield return null;
             if (FadeImage.color.a >= 1)
             {
@@ -67,8 +67,7 @@ public class CanvasManager : MonoBehaviour
             if (FadeImage.color.a <= 0)
             {
                 loadFinish = false;
-
-                Debug.Log(from);
+                
                 to.GetComponent<Canvas>().enabled = true;
             }
         }

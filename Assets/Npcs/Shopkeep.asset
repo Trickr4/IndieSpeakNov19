@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Shopkeep
   m_EditorClassIdentifier: 
   alias: Shopkeep
-  dialouge: []
+  dialouge:
+  - Welcome!
   itemObject: {fileID: 0}

@@ -14,16 +14,27 @@ public class DialogueManager : MonoBehaviour
     public UnityEvent done;
 
 
-    bool started = false;
+    bool started = true;
+    public bool ended = false;
 
     bool waitingToContinue = false;
     bool doneWithDialogue = false;
     bool entered = false;
 
+    GameObject gameManager;
+    Hand hand;
+
+    private void Start()
+    {
+        gameManager = GameObject.Find("GameManager");
+        hand = gameManager.GetComponent<Hand>();
+
+    }
+
 
     void Update()
     {
-        if (started && Input.GetKeyDown(KeyCode.P))
+        if (!started && Input.GetKeyDown(KeyCode.P))
         {
             Done();
         }
@@ -36,9 +47,15 @@ public class DialogueManager : MonoBehaviour
                     waitingToContinue = false;
                     StartCoroutine(ReadLine());
                 }
-                else
+                else if (doneWithDialogue && hand.cardUsed == false)
+                {
+                    hand.DisplayHand();
+                }
+                if (hand.cardUsed)
                 {
                     Done();
+                    hand.cardUsed = false;
+                    ended = true;
                 }
             }
         }
@@ -46,7 +63,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue()
     {
-        started = true;
+        started = false;
         dialoguePanel.SetActive(true);
         StartCoroutine(ReadLine());
     }

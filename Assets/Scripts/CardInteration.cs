@@ -5,11 +5,14 @@ using UnityEngine.EventSystems;
 
 public class CardInteration : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    public GameObject GameManager;
+    GameObject GameManager;
+    Hand hand;
+    
 
     void Start()
     {
         GameManager = GameObject.Find("GameManager");
+        hand = GameManager.GetComponent<Hand>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -24,21 +27,29 @@ public class CardInteration : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        //Debug.Log(pointerEventData.pointerPress + " Game Object Clicked!");
         CardDisplay selected = pointerEventData.pointerPress.GetComponent<CardDisplay>();
-        if (pointerEventData.button == PointerEventData.InputButton.Left)
+        
+        if (hand.chose)
         {
-            /*
-            if (inDialogue)
+            Debug.Log(selected + " Game Object Clicked!");
+            if (pointerEventData.button == PointerEventData.InputButton.Left)
+            {
+                /*
+                if (inDialogue)
+                    UseCard(selected.card);
+                if (inShop)
+                    BuyCard(selected.card);
+                */
+            }
+            if (pointerEventData.button == PointerEventData.InputButton.Right)
+            {
+                //InspectCard(pointerEventData.pointerPress);
                 UseCard(selected.card);
-            if (inShop)
-                BuyCard(selected.card);
-            */
-        }
-        if (pointerEventData.button == PointerEventData.InputButton.Right)
-        {
-            //InspectCard(pointerEventData.pointerPress);
-            UseCard(selected.card);
+                hand.HideHand();
+                hand.RemoveCard(selected.card);
+                Destroy(selected.gameObject);
+                hand.cardUsed = true;
+            }
         }
     }
 

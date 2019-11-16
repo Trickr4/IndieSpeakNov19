@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Work : MonoBehaviour
+public class Shop : MonoBehaviour
 {
-    bool talk= true;
+    bool talk = true;
 
     public List<NPC> people;
     NPC person;
-    public GameObject TopDog;
-    public GameObject Aiko;
+    public GameObject Shopkeep;
 
     GameObject chosen;
     DialogueManager dialogue;
@@ -28,18 +27,13 @@ public class Work : MonoBehaviour
 
     void OnEnable()
     {
-        
+
         person = people[Random.Range(0, people.Count)];
         Debug.Log(person);
-        if (person.name == TopDog.name)
+        if (person.name == Shopkeep.name)
         {
-            TopDog.SetActive(true);
-            chosen = TopDog;
-        }
-        if (person.name == Aiko.name)
-        {
-            Aiko.SetActive(true);
-            chosen = Aiko;
+            Shopkeep.SetActive(true);
+            chosen = Shopkeep;
         }
         talk = true;
     }
@@ -61,14 +55,14 @@ public class Work : MonoBehaviour
             //Debug.Log(dialogue.levelDialogue[0]);
             dialogue.StartDialogue();
         }
-        if(dialogue.ended)
+        if (dialogue.ended)
         {
             Debug.Log(person);
             dialogue.ended = false;
             this.enabled = false;
             canvas.SwitchTo(GameObject.Find(name), GameObject.Find("Map"));
         }
-        
+
     }
 
 }

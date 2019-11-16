@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Terry
   m_EditorClassIdentifier: 
   alias: Terry
-  dialouge: []
+  dialouge:
+  - Wassup
   itemObject: {fileID: 0}
