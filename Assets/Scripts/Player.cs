@@ -66,6 +66,8 @@ public class Player : MonoBehaviour
             energy -= 1;
             charisma += effect.cardValue;
         }
+        if (charisma >= 50)
+            SceneManager.LoadScene("EndScene");
     }
 
     public int ViewEnergy()
@@ -76,7 +78,5 @@ public class Player : MonoBehaviour
     public void AddEnergy(int num)
     {
         energy += num;
-        if (energy >= 50)
-            SceneManager.LoadScene("EndScene");
     }
 }
