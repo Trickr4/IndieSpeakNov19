@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 
+    float salary = 11f;
+    float balance = 0f;
+
     float charisma;
     int energy;
     [SerializeField] Image bar;
@@ -20,6 +23,26 @@ public class Player : MonoBehaviour
     void Update()
     {
         bar.fillAmount = charisma / 20;
+    }
+
+    public float GetSalary()
+    {
+        return salary;
+    }
+
+    public void SetSalary(float n)
+    {
+        salary = n;
+    }
+
+    public float GetBalance()
+    {
+        return balance;
+    }
+
+    public void AddBalance(float n)
+    {
+        balance += n;
     }
 
     public void Action( Card effect )
